@@ -4,6 +4,14 @@ from spambot.helpers.commands import *
 from telethon import events
 
 
+HELP = f"""
+ʜᴇʏ![🤗]({DISPLAY_PIC}) ᴛʜɪꜱ ɪꜱ ᴍᴀꜰɪᴀ ꜱᴘᴀᴍ ᴜꜱᴇʀʙᴏᴛ.⚡
+
+ʏᴏᴜ ᴄᴀɴ ᴋɴᴏᴡ ᴍᴏʀᴇ ᴀʙᴏᴜᴛ ᴍᴇ ᴀɴᴅ ᴍʏ ᴄᴏᴍᴍᴀɴᴅꜱ ᴜꜱɪɴɢ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴꜱ.🔱
+
+ꜰᴜᴄᴋ ʏᴏᴜʀ ᴠɪᴄᴛɪᴍꜱ ᴀɴᴅ ᴇɴᴊᴏʏ ᴛᴇʟᴇɢʀᴀᴍ ᴀɴᴅ ᴅᴏɴᴛ ꜰᴏʀɢᴇᴛ ᴛᴏ ꜱᴜᴘᴘᴏʀᴛ [ᴍᴀꜰɪᴀʙᴏᴛ](https://t.me/MafiaBot_Support).🔥
+"""
+
 @MafiaBot.on(events.CallbackQuery(data=b'alive'))
 async def alive(e):
     if e.query.user_id not in MY_USERS:
@@ -86,5 +94,5 @@ async def back(e):
     if e.query.user_id not in MY_USERS:
         await e.answer("Only Owner, Co-Owner And Sudo Users Can Access This Buttons!", cache_time=0, alert=True)
     else:
-        await e.edit("This Is Help Command!!!", buttons=Buttons)
+        await e.edit(f"{HELP}", buttons=Buttons)
  
