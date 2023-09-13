@@ -10,5 +10,5 @@ requests==2.28.1
 requests-toolbelt==0.9.1
 rsa==4.9
 six==1.16.0
-Telethon==1.28.5
+Telethon==1.30.3
 urllib3==1.26.11
