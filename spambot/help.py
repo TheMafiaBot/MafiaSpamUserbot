@@ -1,6 +1,7 @@
 from spambot import *
 from telethon import events, Button
 
+
 HELP = f"""
 ʜᴇʏ![🤗]({DISPLAY_PIC}) ᴛʜɪꜱ ɪꜱ ᴍᴀꜰɪᴀ ꜱᴘᴀᴍ ᴜꜱᴇʀʙᴏᴛ.⚡
 
@@ -39,12 +40,12 @@ BACK = [
 
 @MafiaBot.on(events.InlineQuery)
 async def helper(hquery):
-    if hquery.text == b'help':
-        try:
-            message = hquery.builder.article('Help', text=HELP, buttons=Buttons)
-            await hquery.answer(message)
-        except Exception as er:
-            print(er)
+    # if hquery.text == b'help':
+    try:
+        message = await hquery.builder.article('Help', text=HELP, buttons=Buttons)
+        await hquery.answer([message])
+    except Exception as er:
+        print(er)
 
 @MafiaBot1.on(events.NewMessage(outgoing=True, pattern='/help'))
 @MafiaBot2.on(events.NewMessage(outgoing=True, pattern='/help'))
@@ -60,9 +61,7 @@ async def help(e):
     if e.sender_id in MY_USERS:
         await e.delete()
         try:
-            message = await e.client.inline_query(BOT_USERNAME, b'help')
+            message = await e.client.inline_query(BOT_USERNAME, 'help')
             await message[0].click(e.chat_id, reply_to=e.reply_to_msg_id, hide_via=True)
         except Exception as er:
             print(er)
-        
-
