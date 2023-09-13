@@ -1,8 +1,8 @@
 import asyncio
 from spambot import *
 from telethon import events
-from telethon.tl.types import ChannelParticipantsAdmins, ChannelParticipantsKicked,ChatBannedRights
 from telethon.tl.functions.channels import EditBannedRequest
+from telethon.tl.types import ChatBannedRights, ChannelParticipantsAdmins, ChannelParticipantsKicked
 
 BAN = ChatBannedRights(
     until_date=None,

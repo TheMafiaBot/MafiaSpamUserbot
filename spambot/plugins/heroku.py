@@ -17,11 +17,11 @@ from spambot.helpers.neko import paster
 async def restart(e):
     if e.sender_id in MY_USERS:
         await e.delete()
-        if (HEROKU_API_KEY is not None) or (HEROKU_APP_NAME is not None):
+        if (HEROKU_API_KEY is not None) or (HEROKU_APP_ID is not None):
             try:
                 await e.client.send_message(e.chat_id, "`Restarting...`")
                 heroku_conn = heroku3.from_key(HEROKU_API_KEY)
-                app = heroku_conn.app(HEROKU_APP_NAME)
+                app = heroku_conn.app(HEROKU_APP_ID)
                 app.restart()
             except Exception as er:
                 print(er)
@@ -42,10 +42,10 @@ async def restart(e):
 async def restart(e):
     if e.sender_id in MY_USERS:
         await e.delete()
-        if (HEROKU_API_KEY is not None) or (HEROKU_APP_NAME is not None):
+        if (HEROKU_API_KEY is not None) or (HEROKU_APP_ID is not None):
             try:
                 heroku_conn = heroku3.from_key(HEROKU_API_KEY)
-                app = heroku_conn.app(HEROKU_APP_NAME)
+                app = heroku_conn.app(HEROKU_APP_ID)
                 log = app.get_log()
                 logs1 = await paster(log)
                 paste = f"[Click Here To Check Logs]({logs1})"
