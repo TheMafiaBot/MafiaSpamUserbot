@@ -40,12 +40,12 @@ BACK = [
 
 @MafiaBot.on(events.InlineQuery)
 async def helper(hquery):
-    # if hquery.text == b'help':
-    try:
-        message = await hquery.builder.article('Help', text=HELP, buttons=Buttons)
-        await hquery.answer([message])
-    except Exception as er:
-        print(er)
+    if hquery.text == b'help':
+        try:
+            message = await hquery.builder.article('Help', text=HELP, buttons=Buttons)
+            await hquery.answer([message])
+        except Exception as er:
+            print(er)
 
 @MafiaBot1.on(events.NewMessage(outgoing=True, pattern='/help'))
 @MafiaBot2.on(events.NewMessage(outgoing=True, pattern='/help'))
