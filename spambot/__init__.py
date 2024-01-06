@@ -27,7 +27,7 @@ DISPLAY_PIC = str(Config.DISPLAY_PIC) if Config.DISPLAY_PIC else "https://telegr
 BIO_MSG = str(Config.BIO_MSG) if Config.BIO_MSG else "Mafia Spam UserBot Ready To Fuck Haters!"
 OWNER_USERNAME = str(Config.OWNER_USERNAME) if Config.OWNER_USERNAME else "MafiaBot_Support"
 HEROKU_API_KEY = Config.HEROKU_API_KEY
-HEROKU_APP_ID = Config.HEROKU_APP_ID
+HEROKU_APP_NAME = Config.HEROKU_APP_NAME
 
 BOT_VERSION = 1.0
 
