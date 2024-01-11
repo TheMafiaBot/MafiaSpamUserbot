@@ -193,7 +193,14 @@ async def main():
         except Exception as e:
             print(e)
             pass
-
+    else:
+        print("Bot Token Is'nt Available Or Invalid Bot Token")
+        try:
+            session_name = "MafiaSpamBot"
+            MafiaBot = TelegramClient(session_name, api_id=API_ID, api_hash=API_HASH)
+            await MafiaBot.start(bot_token=BOT_TOKEN)
+        except Exception as e:
+            pass  
 
 loop = asyncio.get_event_loop()
 loop.run_until_complete(main())
