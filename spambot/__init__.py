@@ -198,7 +198,7 @@ async def main():
         try:
             session_name = "MafiaSpamBot"
             MafiaBot = TelegramClient(session_name, api_id=API_ID, api_hash=API_HASH)
-            await MafiaBot.start()
+            await MafiaBot.start(bot_token=BOT_TOKEN)
         except Exception as e:
             pass  
 
