@@ -94,7 +94,7 @@
         "value": "",
         "required": false
       },
-      "HEROKU_APP_NAME": {
+      "HEROKU_APP_ID": {
         "description": "Enter Your Heroku App Name!",
         "value": "",
         "required": false
