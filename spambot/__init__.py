@@ -27,7 +27,7 @@ DISPLAY_PIC = str(Config.DISPLAY_PIC) if Config.DISPLAY_PIC else "https://telegr
 BIO_MSG = str(Config.BIO_MSG) if Config.BIO_MSG else "Mafia Spam UserBot Ready To Fuck Haters!"
 OWNER_USERNAME = str(Config.OWNER_USERNAME) if Config.OWNER_USERNAME else "MafiaBot_Support"
 HEROKU_API_KEY = Config.HEROKU_API_KEY
-HEROKU_APP_NAME = Config.HEROKU_APP_NAME
+HEROKU_APP_ID = Config.HEROKU_APP_ID
 
 BOT_VERSION = 1.0
 
@@ -189,7 +189,7 @@ async def main():
         try:
             MafiaBot = TelegramClient("MafiaSpamBot", api_id=API_ID, api_hash=API_HASH)
             print("Bot Token OK!")
-            await MafiaBot.start()
+            await MafiaBot.start(bot_token=BOT_TOKEN)
         except Exception as e:
             print(e)
             pass
@@ -200,7 +200,7 @@ async def main():
             MafiaBot = TelegramClient(session_name, api_id=API_ID, api_hash=API_HASH)
             await MafiaBot.start()
         except Exception as e:
-            pass    
+            pass  
 
 loop = asyncio.get_event_loop()
 loop.run_until_complete(main())
