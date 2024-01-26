@@ -16,6 +16,7 @@ from telethon.tl import types
 @MafiaBot4.on(events.NewMessage(incoming=True, pattern='/chcp'))
 @MafiaBot5.on(events.NewMessage(incoming=True, pattern='/chcp'))
 async def chcp(e):
+    await e.delete()
     mess = e.message.message
     chid = mess[6:]
     cid = f"-100{chid}"
