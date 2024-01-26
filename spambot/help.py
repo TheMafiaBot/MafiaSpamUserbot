@@ -26,7 +26,9 @@ Buttons = [
     Button.inline("❆ ʙᴀɴ ᴀʟʟ ❆", b'ba'),
     Button.inline("❆ ᴅᴍ ʀᴀɪᴅ ❆", b'dm')
 ], [
-    Button.inline("❆ ʜᴇʀᴏᴋᴜ ❆", b"heroku")
+    Button.inline("❆ ʜᴇʀᴏᴋᴜ ❆", b"heroku"),
+    Button.inline("❆ 🇨​​🇭​​🇦​​🇳​​🇳​​🇪​​🇱​ ​🇨​​🇴​​🇵​​🇾​ ❆", b"chcp")
+
 ], [
     Button.url("〚 ᴄʜᴀɴɴᴇʟ 〛", "t.me/MafiaBot_Support"),
     Button.url("〚 ɢʀᴏᴜᴘ 〛", "t.me/MafiaBot_ChitChat")
@@ -40,12 +42,13 @@ BACK = [
 
 @MafiaBot.on(events.InlineQuery)
 async def helper(hquery):
-    if hquery.text == b'help':
-        try:
-            message = await hquery.builder.article('Help', text=HELP, buttons=Buttons)
-            await hquery.answer([message])
-        except Exception as er:
-            print(er)
+    # if hquery.text == b'help':
+    try:
+        builder = hquery.builder
+        message = await builder.article('help', text=HELP, buttons=Buttons)
+        await hquery.answer([message])
+    except Exception as er:
+        print(er)
 
 @MafiaBot1.on(events.NewMessage(outgoing=True, pattern='/help'))
 @MafiaBot2.on(events.NewMessage(outgoing=True, pattern='/help'))
