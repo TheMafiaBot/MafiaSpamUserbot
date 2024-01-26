@@ -89,6 +89,13 @@ async def heroku(e):
     else:
         await e.edit(f"{HEROKU_CMD}", buttons=BACK)
 
+@MafiaBot.on(events.CallbackQuery(data=b'chcp'))
+async def heroku(e):
+    if e.query.user_id not in MY_USERS:
+        await e.answer("Only Owner, Co-Owner And Sudo Users Can Access This Buttons!", cache_time=0, alert=True)
+    else:
+        await e.edit(f"{CHCP_CMD}", buttons=BACK)
+
 @MafiaBot.on(events.CallbackQuery(data=b'back'))
 async def back(e):
     if e.query.user_id not in MY_USERS:

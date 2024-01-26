@@ -98,3 +98,9 @@ To Access Heroku Features Using Bot!
 
 ✮ `/logs` - To Get Heroku Logs Of Mafia Spam Userbot! - `(SUDO:- True)`
 """
+
+CHCP_CMD = """
+TO CONTENT FROM ONE CHANNEL TO ANOTHER!
+
+✮ `/chcp` - To Copy Channel! Give Channel ID without -100. - `(SUDO:- True)`
+"""
