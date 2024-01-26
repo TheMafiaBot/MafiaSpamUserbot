@@ -5,7 +5,6 @@ from telethon import events
 from telethon.tl import types
 
 
-
 @MafiaBot1.on(events.NewMessage(outgoing=True, pattern='/chcp'))
 @MafiaBot2.on(events.NewMessage(outgoing=True, pattern='/chcp'))
 @MafiaBot3.on(events.NewMessage(outgoing=True, pattern='/chcp'))
@@ -17,11 +16,12 @@ from telethon.tl import types
 @MafiaBot4.on(events.NewMessage(incoming=True, pattern='/chcp'))
 @MafiaBot5.on(events.NewMessage(incoming=True, pattern='/chcp'))
 async def chcp(e):
-    await e.delete()
     mess = e.message.message
-    cid = mess[6:]
+    chid = mess[6:]
+    cid = f"-100{chid}"
     async for msg in e.client.iter_messages(int(cid), reverse=True):
         if not isinstance(msg, types.MessageService):
             await e.client.send_message(e.chat_id, msg)
             await asyncio.sleep(1)
+
 
